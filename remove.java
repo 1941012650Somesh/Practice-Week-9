@@ -1,17 +1,43 @@
-public class Roman {
-    public static void main(String[] args) {
-        System.out.println(intToRoman(8));
-        System.out.println(intToRoman(88));
-        System.out.println(intToRoman(888));
- 
+import java.util.*;
+public class remove  
+{ 
+    static final int NO_OF_CHARS = 256;
+    static int[] getCharCountArray(String str) 
+    { 
+       int count[] = new int[NO_OF_CHARS]; 
+       for (int i = 0; i<str.length();  i++) 
+          count[str.charAt(i)]++; 
+         
+       return count; 
+    } 
+    static String removeChars(String str, String str1) 
+    { 
+      int count[]  = getCharCountArray(str1); 
+      int a  = 0, b = 0; 
+        
+      char arr[] = str.toCharArray(); 
+        
+      while (a != arr.length) 
+      { 
+        char temp = arr[a]; 
+        if(count[temp] == 0) 
+        { 
+            arr[b] = arr[a]; 
+            b++; 
+        } 
+            a++; 
+          
+      }     
+  
+      str = new String(arr); 
+      return str.substring(0, b); 
+        
     }
-    public static String intToRoman(int num)
-    {
-        String[] Thousands= {"","M","MM","MMM"};
-        String[] Hundreds={"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
-        String[] Tens={"","X","XX","XL","L","LX","LXX","LXXX","XC"};
-        String[] Units={"","I","II","III","IV","V","VI","VII","VIII","IX"};
-
-        return Thousands[num/1000]+Hundreds[(num%1000)/100]+Tens[(num%100)/10]+Units[num%10];
-    }
+    public static void main(String[] args) 
+    { 
+        Scanner sc=new Scanner(System.in);
+        String str = sc.nextLine(); 
+        String mask_str = sc.nextLine(); 
+        System.out.println(removeChars(str, str1)); 
+    } 
 }
