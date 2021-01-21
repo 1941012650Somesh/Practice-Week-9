@@ -1,4 +1,3 @@
-import java.util.regex.*;
 import java.util.Scanner;
 public class RemoveString {
 
@@ -11,8 +10,8 @@ public class RemoveString {
 		System.out.println("Enter second string:");
 		String s2=sc.nextLine();
 		
-		String regex="["+s2+"]";
-		s1=s1.replaceAll(regex,"");
+		String remove="["+s2+"]";
+		s1=s1.replaceAll(remove,"");
 		System.out.println(s1);
 	}
 
